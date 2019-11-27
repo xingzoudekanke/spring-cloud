@@ -1,0 +1,28 @@
+server:
+  port: 9004
+spring:
+  application:
+    name: spring-cloud-config-server-01
+  cloud:
+    bus:
+      trace:
+        enabled: true
+    consul:
+      host: 127.0.0.1
+      port: 8500
+      discovery:
+        service-name: spring-cloud-config
+        health-check-path: /actuator/health
+        prefer-ip-address: true
+        register: true
+    config:
+      server:
+        git:
+          uri: https://github.com/xingzoudekanke/config-depot.git
+          search-paths: /config
+          default-label: master
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

@@ -1,0 +1,2 @@
+#以开发模式启动服务，-server表示以服务模式启动
+./consul agent -dev
